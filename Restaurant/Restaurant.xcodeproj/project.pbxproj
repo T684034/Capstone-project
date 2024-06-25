@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		EF8C796D2C2822A000671158 /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C796C2C2822A000671158 /* RestaurantApp.swift */; };
-		EF8C796F2C2822A000671158 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C796E2C2822A000671158 /* ContentView.swift */; };
 		EF8C79712C2822A800671158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8C79702C2822A800671158 /* Assets.xcassets */; };
 		EF8C79742C2822A800671158 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8C79732C2822A800671158 /* Preview Assets.xcassets */; };
+		EF8C797B2C2B713E00671158 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C797A2C2B713E00671158 /* Onboarding.swift */; };
+		EF8C797D2C2B7F0500671158 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C797C2C2B7F0500671158 /* Home.swift */; };
+		EF8C797F2C2B805D00671158 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C797E2C2B805D00671158 /* Menu.swift */; };
+		EF8C79812C2B832500671158 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79802C2B832500671158 /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF8C79692C2822A000671158 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8C796C2C2822A000671158 /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
-		EF8C796E2C2822A000671158 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EF8C79702C2822A800671158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF8C79732C2822A800671158 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF8C797A2C2B713E00671158 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EF8C797C2C2B7F0500671158 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		EF8C797E2C2B805D00671158 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		EF8C79802C2B832500671158 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,11 @@
 		EF8C796B2C2822A000671158 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				EF8C797E2C2B805D00671158 /* Menu.swift */,
+				EF8C797C2C2B7F0500671158 /* Home.swift */,
+				EF8C79802C2B832500671158 /* UserProfile.swift */,
+				EF8C797A2C2B713E00671158 /* Onboarding.swift */,
 				EF8C796C2C2822A000671158 /* RestaurantApp.swift */,
-				EF8C796E2C2822A000671158 /* ContentView.swift */,
 				EF8C79702C2822A800671158 /* Assets.xcassets */,
 				EF8C79722C2822A800671158 /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8C796F2C2822A000671158 /* ContentView.swift in Sources */,
+				EF8C797B2C2B713E00671158 /* Onboarding.swift in Sources */,
+				EF8C797D2C2B7F0500671158 /* Home.swift in Sources */,
+				EF8C79812C2B832500671158 /* UserProfile.swift in Sources */,
+				EF8C797F2C2B805D00671158 /* Menu.swift in Sources */,
 				EF8C796D2C2822A000671158 /* RestaurantApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
