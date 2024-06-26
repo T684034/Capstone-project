@@ -56,6 +56,7 @@ class MenuViewModel: ObservableObject {
 	
 	private func fetchMenuItemsFromCoreData(context: NSManagedObjectContext) {
 		let fetchRequest: NSFetchRequest<Dish> = Dish.fetchRequest()
+		fetchRequest.sortDescriptors = buildSortDescriptors()
 		
 		do {
 			dishes = try context.fetch(fetchRequest)
@@ -72,4 +73,15 @@ class MenuViewModel: ObservableObject {
 			print("Error fetching from Core Data: \(error)")
 		}
 	}
+	
+	private func buildSortDescriptors() -> [NSSortDescriptor] {
+		return [
+			NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare))
+		]
+	}
+	
+	/*
+	func buildPredicate(searchText: String) -> NSPredicate {
+		return searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[cd] %@", searchText)
+	}*/
 }
