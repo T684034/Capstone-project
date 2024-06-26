@@ -3,9 +3,9 @@ import SwiftUI
 struct UserProfile: View {
 	@Environment(\.presentationMode) var presentation
 	
-	let firstName = UserDefaults.standard.string(forKey: kFirstName) ?? ""
-	let lastName = UserDefaults.standard.string(forKey: kLastName) ?? ""
-	let email = UserDefaults.standard.string(forKey: kEmail) ?? ""
+	let firstName = UserDefaults.standard.string(forKey: keyFirstName) ?? ""
+	let lastName = UserDefaults.standard.string(forKey: keyLastName) ?? ""
+	let email = UserDefaults.standard.string(forKey: keyEmail) ?? ""
 	
 	var body: some View {
 		VStack {
@@ -32,7 +32,7 @@ struct UserProfile: View {
 				.padding(.top)
 			
 			Button("Logout") {
-				UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+				UserDefaults.standard.set(false, forKey: keyIsLoggedIn)
 				self.presentation.wrappedValue.dismiss()
 			}
 			.padding(.top)

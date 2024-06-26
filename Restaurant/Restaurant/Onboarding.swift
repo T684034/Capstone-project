@@ -1,15 +1,16 @@
 import SwiftUI
 
-let kFirstName = "firstNameKey"
-let kLastName = "lastNameKey"
-let kEmail = "emailKey"
-let kIsLoggedIn = "kIsLoggedIn"
+let keyFirstName = "firstNameKey"
+let keyLastName = "lastNameKey"
+let keyEmail = "emailKey"
+let keyIsLoggedIn = "kIsLoggedIn"
 
 struct Onboarding: View {
 	@State private var firstName = ""
 	@State private var lastName = ""
 	@State private var email = ""
-	@State private var isLoggedIn = false // New state variable
+	@State private var isLoggedIn = false
+	@State private var showAlert: Bool = false
 	
 	var body: some View {
 		NavigationStack {
@@ -17,25 +18,33 @@ struct Onboarding: View {
 				TextField("First Name", text: $firstName)
 					.padding()
 					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.disableAutocorrection(true)
 				
 				TextField("Last Name", text: $lastName)
 					.padding()
 					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.disableAutocorrection(true)
 				
 				TextField("Email", text: $email)
 					.padding()
 					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.keyboardType(.emailAddress)
+					.autocapitalization(.none)
+					.disableAutocorrection(true)
 				
 				Button("Register") {
 					if !firstName.isEmpty && !lastName.isEmpty && isValidEmail(email) {
-						UserDefaults.standard.set(firstName, forKey: kFirstName)
-						UserDefaults.standard.set(lastName, forKey: kLastName)
-						UserDefaults.standard.set(email, forKey: kEmail)
-						UserDefaults.standard.set(true, forKey: kIsLoggedIn)
+						UserDefaults.standard.set(firstName, forKey: keyFirstName)
+						UserDefaults.standard.set(lastName, forKey: keyLastName)
+						UserDefaults.standard.set(email, forKey: keyEmail)
+						UserDefaults.standard.set(true, forKey: keyIsLoggedIn)
 						isLoggedIn = true
 					} else {
-						// Handle the case where one or more fields are empty or email is invalid
+						showAlert = true
 					}
+				}
+				.alert(isPresented: $showAlert) {
+					Alert(title: Text("Invalid Entry"), message: Text("Please correct your entry"), dismissButton: .default(Text("OK")))
 				}
 				.padding()
 				
@@ -46,7 +55,7 @@ struct Onboarding: View {
 				Home()
 			}
 			.onAppear {
-				if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
+				if UserDefaults.standard.bool(forKey: keyIsLoggedIn) {
 					isLoggedIn = true
 				}
 			}
