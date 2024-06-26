@@ -21,11 +21,8 @@ struct FetchedObjects<T, Content>: View where T : NSManagedObject, Content : Vie
       predicate: predicate
     )
   }
-  
-  
+
   var body: some View {
     self.content(results.map { $0 })
   }
-  
-  
 }

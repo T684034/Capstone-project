@@ -18,6 +18,9 @@
 		EF8C79852C2BFD5C00671158 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79832C2BFD5C00671158 /* FetchedObjects.swift */; };
 		EF8C79892C2BFE5F00671158 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79882C2BFE5F00671158 /* MenuList.swift */; };
 		EF8C798B2C2BFE8C00671158 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C798A2C2BFE8C00671158 /* MenuItem.swift */; };
+		EF8C798E2C2C13E400671158 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF8C798C2C2C13E400671158 /* ExampleDatabase.xcdatamodeld */; };
+		EF8C79932C2C5B4B00671158 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79922C2C5B4B00671158 /* MenuViewModel.swift */; };
+		EF8C799B2C2C647600671158 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		EF8C79832C2BFD5C00671158 /* FetchedObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 		EF8C79882C2BFE5F00671158 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		EF8C798A2C2BFE8C00671158 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		EF8C798D2C2C13E400671158 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
+		EF8C79922C2C5B4B00671158 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 		EF8C79602C2822A000671158 = {
 			isa = PBXGroup;
 			children = (
+				EF8C798F2C2C140100671158 /* Persistance */,
 				EF8C796B2C2822A000671158 /* Restaurant */,
 				EF8C796A2C2822A000671158 /* Products */,
 			);
@@ -65,9 +72,9 @@
 		EF8C796B2C2822A000671158 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				EF8C79862C2BFE1800671158 /* Models */,
-				EF8C79872C2BFE2700671158 /* Utility */,
 				EF8C797E2C2B805D00671158 /* Menu.swift */,
+				EF8C79872C2BFE2700671158 /* Utility */,
+				EF8C79992C2C61C900671158 /* Menu */,
 				EF8C797C2C2B7F0500671158 /* Home.swift */,
 				EF8C79802C2B832500671158 /* UserProfile.swift */,
 				EF8C797A2C2B713E00671158 /* Onboarding.swift */,
@@ -102,6 +109,40 @@
 				EF8C79822C2BFD5C00671158 /* Persistence.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		EF8C798F2C2C140100671158 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				EF8C798C2C2C13E400671158 /* ExampleDatabase.xcdatamodeld */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		EF8C79962C2C619600671158 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EF8C79972C2C61A500671158 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF8C79922C2C5B4B00671158 /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF8C79992C2C61C900671158 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EF8C79862C2BFE1800671158 /* Models */,
+				EF8C79962C2C619600671158 /* UI */,
+				EF8C79972C2C61A500671158 /* ViewModel */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +220,9 @@
 				EF8C79892C2BFE5F00671158 /* MenuList.swift in Sources */,
 				EF8C79812C2B832500671158 /* UserProfile.swift in Sources */,
 				EF8C79842C2BFD5C00671158 /* Persistence.swift in Sources */,
+				EF8C799B2C2C647600671158 /* MenuItemDetailView.swift in Sources */,
+				EF8C79932C2C5B4B00671158 /* MenuViewModel.swift in Sources */,
+				EF8C798E2C2C13E400671158 /* ExampleDatabase.xcdatamodeld in Sources */,
 				EF8C797F2C2B805D00671158 /* Menu.swift in Sources */,
 				EF8C79852C2BFD5C00671158 /* FetchedObjects.swift in Sources */,
 				EF8C798B2C2BFE8C00671158 /* MenuItem.swift in Sources */,
@@ -386,6 +430,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF8C798C2C2C13E400671158 /* ExampleDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF8C798D2C2C13E400671158 /* ExampleDatabase.xcdatamodel */,
+			);
+			currentVersion = EF8C798D2C2C13E400671158 /* ExampleDatabase.xcdatamodel */;
+			path = ExampleDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF8C79612C2822A000671158 /* Project object */;
 }
