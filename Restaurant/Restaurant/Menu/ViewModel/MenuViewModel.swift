@@ -2,10 +2,14 @@ import CoreData
 
 class MenuViewModel: ObservableObject {
 	@Published var menuItems: [MenuItem] = []
+	@Published var dishes: [Dish] = []
 	
 	private let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
 	
 	func getMenuData(context: NSManagedObjectContext) {
+		let persistenceController = PersistenceController.shared
+		persistenceController.clear()
+		
 		guard let url = URL(string: urlString) else { return }
 		let request = URLRequest(url: url)
 		
@@ -34,7 +38,7 @@ class MenuViewModel: ObservableObject {
 		task.resume()
 	}
 	
-	func saveMenuItemsToCoreData(context: NSManagedObjectContext, menuItems: [MenuItem]) {
+	private func saveMenuItemsToCoreData(context: NSManagedObjectContext, menuItems: [MenuItem]) {
 		for menuItem in menuItems {
 			let dish = Dish(context: context)
 			dish.title = menuItem.title
@@ -50,11 +54,11 @@ class MenuViewModel: ObservableObject {
 		}
 	}
 	
-	func fetchMenuItemsFromCoreData(context: NSManagedObjectContext) {
+	private func fetchMenuItemsFromCoreData(context: NSManagedObjectContext) {
 		let fetchRequest: NSFetchRequest<Dish> = Dish.fetchRequest()
 		
 		do {
-			let dishes = try context.fetch(fetchRequest)
+			dishes = try context.fetch(fetchRequest)
 			print("Fetched \(dishes.count) dishes from Core Data")
 			self.menuItems = dishes.map { dish in
 				MenuItem(

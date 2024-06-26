@@ -10,40 +10,44 @@ struct Menu: View {
 	}
 	
 	var body: some View {
-		VStack {
-			Text("Menu")
-				.font(.largeTitle)
-				.padding()
-			
-			List(viewModel.menuItems, id: \.title) { item in
-				HStack {
-					Text("\(item.title) - \(item.price)")
-						.font(.headline)
-					
-					Spacer()
-					
-					let imageUrl = item.image
-					if let url = URL(string: imageUrl) {
-						AsyncImage(
-							url: url,
-							content: { image in
-								image.resizable()
-									.aspectRatio(contentMode: .fit)
-							},
-							placeholder: {
-								ProgressView()
+		NavigationView {
+			VStack {
+				//List(viewModel.menuItems, id: \.title) { item in
+				List(viewModel.dishes, id: \.title) { item in
+					NavigationLink(destination: MenuItemDetailView(dish: item)) {
+						HStack {
+							//Text("\(item.title) - \(item.price)")
+							Text("\(item.title ?? "") - \(item.price  ?? "")")
+								.font(.headline)
+							
+							Spacer()
+							
+							//let imageUrl = item.image
+							//if let url = URL(string: imageUrl) {
+							if let imageUrl = item.image, let url = URL(string: imageUrl) {
+								AsyncImage(
+									url: url,
+									content: { image in
+										image.resizable()
+											.aspectRatio(contentMode: .fit)
+									},
+									placeholder: {
+										ProgressView()
+									}
+								)
+								.cornerRadius(Constants.imageCornerRadius)
+								.frame(width: Constants.imageLength, height: Constants.imageLength)
 							}
-						)
-						.cornerRadius(Constants.imageCornerRadius)
-						.frame(width: Constants.imageLength, height: Constants.imageLength)
+						}
 					}
 				}
+				.listStyle(.plain)
+				.padding()
 			}
-			.listStyle(.plain)
-			.padding()
-		}
-		.onAppear {
-			viewModel.getMenuData(context: viewContext)
+			.onAppear {
+				viewModel.getMenuData(context: viewContext)
+			}
+			.navigationTitle("Menu")
 		}
 	}
 }
