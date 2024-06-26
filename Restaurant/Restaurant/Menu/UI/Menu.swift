@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Menu: View {
 	@ObservedObject private var viewModel = MenuViewModel()
+	@Environment(\.managedObjectContext) private var viewContext
 	
 	private enum Constants {
 		static let imageLength: CGFloat = 100
@@ -42,7 +43,7 @@ struct Menu: View {
 			.padding()
 		}
 		.onAppear {
-			viewModel.getMenuData()
+			viewModel.getMenuData(context: viewContext)
 		}
 	}
 }
