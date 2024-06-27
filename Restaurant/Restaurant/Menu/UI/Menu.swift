@@ -13,7 +13,8 @@ struct Menu: View {
 	
 	var body: some View {
 		NavigationView {
-			VStack {
+			VStack(spacing: 0) {
+				MenuHeroView()
 				VStack {
 					ExpandingSearchBar(searchText: $searchText, onSearchButtonClicked: {
 						viewModel.applySearchFilter(searchText)
@@ -22,6 +23,8 @@ struct Menu: View {
 				}
 				.frame(height: Constants.searchBarContainerHeight)
 				//.border(Color.red, width: 1)
+				
+				MenuBreakdownView()
 
 				List(viewModel.filteredDishes, id: \.title) { item in
 					NavigationLink(destination: MenuItemDetailView(dish: item)) {
@@ -49,7 +52,7 @@ struct Menu: View {
 					}
 				}
 				.listStyle(.plain)
-				.padding()
+				//.padding()
 			}
 			.onAppear {
 				viewModel.getMenuData(context: viewContext)
@@ -57,7 +60,6 @@ struct Menu: View {
 			.onChange(of: searchText) {
 				viewModel.applySearchFilter(searchText)
 			}
-			.navigationTitle("Menu")
 		}
 	}
 }

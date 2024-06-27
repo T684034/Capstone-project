@@ -22,7 +22,9 @@
 		EF8C79932C2C5B4B00671158 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79922C2C5B4B00671158 /* MenuViewModel.swift */; };
 		EF8C799B2C2C647600671158 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */; };
 		EF8C799D2C2D66A500671158 /* ExpandingSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C799C2C2D66A500671158 /* ExpandingSearchBar.swift */; };
-		EF8C799F2C2D858600671158 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C799E2C2D858600671158 /* MenuHeaderView.swift */; };
+		EF8C799F2C2D858600671158 /* MenuHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C799E2C2D858600671158 /* MenuHeroView.swift */; };
+		EF8C79A12C2E139500671158 /* MenuBreakdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79A02C2E139500671158 /* MenuBreakdownView.swift */; };
+		EF8C79A32C2E1E3100671158 /* LittleLemonHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C79A22C2E1E3100671158 /* LittleLemonHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +44,9 @@
 		EF8C79922C2C5B4B00671158 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
 		EF8C799C2C2D66A500671158 /* ExpandingSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingSearchBar.swift; sourceTree = "<group>"; };
-		EF8C799E2C2D858600671158 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		EF8C799E2C2D858600671158 /* MenuHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeroView.swift; sourceTree = "<group>"; };
+		EF8C79A02C2E139500671158 /* MenuBreakdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBreakdownView.swift; sourceTree = "<group>"; };
+		EF8C79A22C2E1E3100671158 /* LittleLemonHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +132,9 @@
 				EF8C797E2C2B805D00671158 /* Menu.swift */,
 				EF8C799A2C2C647600671158 /* MenuItemDetailView.swift */,
 				EF8C799C2C2D66A500671158 /* ExpandingSearchBar.swift */,
-				EF8C799E2C2D858600671158 /* MenuHeaderView.swift */,
+				EF8C799E2C2D858600671158 /* MenuHeroView.swift */,
+				EF8C79A02C2E139500671158 /* MenuBreakdownView.swift */,
+				EF8C79A22C2E1E3100671158 /* LittleLemonHeader.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -225,8 +231,10 @@
 				EF8C797D2C2B7F0500671158 /* Home.swift in Sources */,
 				EF8C79892C2BFE5F00671158 /* MenuList.swift in Sources */,
 				EF8C79812C2B832500671158 /* UserProfile.swift in Sources */,
-				EF8C799F2C2D858600671158 /* MenuHeaderView.swift in Sources */,
+				EF8C79A32C2E1E3100671158 /* LittleLemonHeader.swift in Sources */,
+				EF8C799F2C2D858600671158 /* MenuHeroView.swift in Sources */,
 				EF8C79842C2BFD5C00671158 /* Persistence.swift in Sources */,
+				EF8C79A12C2E139500671158 /* MenuBreakdownView.swift in Sources */,
 				EF8C799B2C2C647600671158 /* MenuItemDetailView.swift in Sources */,
 				EF8C79932C2C5B4B00671158 /* MenuViewModel.swift in Sources */,
 				EF8C798E2C2C13E400671158 /* ExampleDatabase.xcdatamodeld in Sources */,

@@ -3,7 +3,7 @@ import SwiftUI
 let keyFirstName = "firstNameKey"
 let keyLastName = "lastNameKey"
 let keyEmail = "emailKey"
-let keyIsLoggedIn = "kIsLoggedIn"
+let keyIsLoggedIn = "isLoggedInKey"
 
 struct Onboarding: View {
 	@State private var firstName = ""
