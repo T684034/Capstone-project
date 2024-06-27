@@ -3,6 +3,12 @@ import CoreData
 class MenuViewModel: ObservableObject {
 	@Published var menuItems: [MenuItem] = []
 	@Published var dishes: [Dish] = []
+	@Published var filteredDishes: [Dish] = []
+	@Published var searchText: String = "" {
+		didSet {
+			updateFilteredDishes()
+		}
+	}
 	
 	private let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
 	
@@ -60,18 +66,23 @@ class MenuViewModel: ObservableObject {
 		
 		do {
 			dishes = try context.fetch(fetchRequest)
+			filteredDishes = dishes
 			print("Fetched \(dishes.count) dishes from Core Data")
-			self.menuItems = dishes.map { dish in
-				MenuItem(
-					title: dish.title ?? "",
-					image: dish.image ?? "",
-					price: dish.price ?? "",
-					itemDescription: dish.itemDescription
-				)
-			}
+			updateFilteredDishes()
 		} catch {
 			print("Error fetching from Core Data: \(error)")
 		}
+	}
+	
+	private func updateFilteredDishes() {
+		filteredDishes = dishes.filter { dish in
+			let predicate = buildPredicate(searchText: searchText)
+			return predicate.evaluate(with: dish)
+		}
+	}
+	
+	func applySearchFilter(_ searchText: String) {
+		self.searchText = searchText
 	}
 	
 	private func buildSortDescriptors() -> [NSSortDescriptor] {
@@ -80,8 +91,7 @@ class MenuViewModel: ObservableObject {
 		]
 	}
 	
-	/*
 	func buildPredicate(searchText: String) -> NSPredicate {
-		return searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[cd] %@", searchText)
-	}*/
+		return searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+	}
 }

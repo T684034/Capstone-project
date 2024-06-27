@@ -3,6 +3,7 @@ import SwiftUI
 struct Menu: View {
 	@ObservedObject private var viewModel = MenuViewModel()
 	@Environment(\.managedObjectContext) private var viewContext
+	@State private var searchText = ""
 	
 	private enum Constants {
 		static let imageLength: CGFloat = 100
@@ -12,18 +13,18 @@ struct Menu: View {
 	var body: some View {
 		NavigationView {
 			VStack {
-				//List(viewModel.menuItems, id: \.title) { item in
-				List(viewModel.dishes, id: \.title) { item in
+				SearchBar(searchText: $searchText, onSearchButtonClicked: {
+					viewModel.applySearchFilter(searchText)
+				})
+				
+				List(viewModel.filteredDishes, id: \.title) { item in
 					NavigationLink(destination: MenuItemDetailView(dish: item)) {
 						HStack {
-							//Text("\(item.title) - \(item.price)")
-							Text("\(item.title ?? "") - \(item.price  ?? "")")
+							Text("\(item.title ?? "") - \(item.price ?? "")")
 								.font(.headline)
 							
 							Spacer()
 							
-							//let imageUrl = item.image
-							//if let url = URL(string: imageUrl) {
 							if let imageUrl = item.image, let url = URL(string: imageUrl) {
 								AsyncImage(
 									url: url,
@@ -47,6 +48,9 @@ struct Menu: View {
 			.onAppear {
 				viewModel.getMenuData(context: viewContext)
 			}
+			.onChange(of: searchText) {
+				viewModel.applySearchFilter(searchText)
+			}
 			.navigationTitle("Menu")
 		}
 	}
@@ -55,5 +59,29 @@ struct Menu: View {
 struct Menu_Previews: PreviewProvider {
 	static var previews: some View {
 		Menu()
+	}
+}
+
+struct SearchBar: View {
+	@Binding var searchText: String
+	var onSearchButtonClicked: () -> Void
+	
+	var body: some View {
+		HStack {
+			TextField("Search", text: $searchText, onCommit: {
+				onSearchButtonClicked()
+			})
+			.textFieldStyle(RoundedBorderTextFieldStyle())
+			.padding(.horizontal)
+			
+			Button(action: {
+				searchText = ""
+				onSearchButtonClicked()
+			}) {
+				Image(systemName: "xmark.circle.fill")
+					.foregroundColor(.gray)
+					.padding(.trailing)
+			}
+		}
 	}
 }
