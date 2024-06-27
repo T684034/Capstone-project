@@ -8,15 +8,21 @@ struct Menu: View {
 	private enum Constants {
 		static let imageLength: CGFloat = 100
 		static let imageCornerRadius: CGFloat = 8
+		static let searchBarContainerHeight: CGFloat = 50
 	}
 	
 	var body: some View {
 		NavigationView {
 			VStack {
-				SearchBar(searchText: $searchText, onSearchButtonClicked: {
-					viewModel.applySearchFilter(searchText)
-				})
-				
+				VStack {
+					ExpandingSearchBar(searchText: $searchText, onSearchButtonClicked: {
+						viewModel.applySearchFilter(searchText)
+					})
+					.frame(maxHeight: .infinity)
+				}
+				.frame(height: Constants.searchBarContainerHeight)
+				//.border(Color.red, width: 1)
+
 				List(viewModel.filteredDishes, id: \.title) { item in
 					NavigationLink(destination: MenuItemDetailView(dish: item)) {
 						HStack {
@@ -59,29 +65,5 @@ struct Menu: View {
 struct Menu_Previews: PreviewProvider {
 	static var previews: some View {
 		Menu()
-	}
-}
-
-struct SearchBar: View {
-	@Binding var searchText: String
-	var onSearchButtonClicked: () -> Void
-	
-	var body: some View {
-		HStack {
-			TextField("Search", text: $searchText, onCommit: {
-				onSearchButtonClicked()
-			})
-			.textFieldStyle(RoundedBorderTextFieldStyle())
-			.padding(.horizontal)
-			
-			Button(action: {
-				searchText = ""
-				onSearchButtonClicked()
-			}) {
-				Image(systemName: "xmark.circle.fill")
-					.foregroundColor(.gray)
-					.padding(.trailing)
-			}
-		}
 	}
 }
