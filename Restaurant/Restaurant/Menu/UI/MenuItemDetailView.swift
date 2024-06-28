@@ -19,7 +19,7 @@ struct MenuItemDetailView: View {
 				.font(.title)
 				.padding()
 			
-			Text(dish.price ?? "")
+			Text("Price: $\(dish.price ?? "")")
 				.font(.headline)
 			
 			Spacer()

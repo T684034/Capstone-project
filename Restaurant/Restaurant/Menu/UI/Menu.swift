@@ -29,7 +29,7 @@ struct Menu: View {
 				List(viewModel.filteredDishes, id: \.title) { item in
 					NavigationLink(destination: MenuItemDetailView(dish: item)) {
 						HStack {
-							Text("\(item.title ?? "") - \(item.price ?? "")")
+							Text("\(item.title ?? "") - $\(item.price ?? "")")
 								.font(.headline)
 							
 							Spacer()
@@ -52,7 +52,6 @@ struct Menu: View {
 					}
 				}
 				.listStyle(.plain)
-				//.padding()
 			}
 			.onAppear {
 				viewModel.getMenuData(context: viewContext)
@@ -62,23 +61,12 @@ struct Menu: View {
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItem(placement: .topBarLeading) {
-					Image(systemName: "person.crop.circle.fill")
-						.foregroundColor(.clear)
-					// TODO: hack to center the logo - proper fix
-				}
 				ToolbarItem(placement: .principal) {
 					HStack {
 						Image("littleLemonBanner")
 							.resizable()
 							.scaledToFit()
 							.padding(5)
-					}
-				}
-				ToolbarItem(placement: .primaryAction) {
-					NavigationLink(destination: UserProfile()) {
-						Image(systemName: "person.crop.circle.fill")
-							.foregroundColor(.darkGreenLittleLemon)
 					}
 				}
 			}
