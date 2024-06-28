@@ -12,12 +12,14 @@ struct Header: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(maxHeight: 50)
 					
+					Spacer()
+					
 					if isLoggedIn {
 						NavigationLink(destination: UserProfile()) {
 							Image(systemName: "person.crop.circle.fill")
 								.resizable()
 								.aspectRatio(contentMode: .fit)
-								.frame(maxHeight: 40)
+								.frame(maxHeight: 50)
 								.clipShape(Circle())
 								.padding(.trailing)
 								.foregroundColor(.darkGreenLittleLemon)

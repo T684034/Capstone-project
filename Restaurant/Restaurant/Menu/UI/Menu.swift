@@ -60,6 +60,28 @@ struct Menu: View {
 			.onChange(of: searchText) {
 				viewModel.applySearchFilter(searchText)
 			}
+			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .topBarLeading) {
+					Image(systemName: "person.crop.circle.fill")
+						.foregroundColor(.clear)
+					// TODO: hack to center the logo - proper fix
+				}
+				ToolbarItem(placement: .principal) {
+					HStack {
+						Image("littleLemonBanner")
+							.resizable()
+							.scaledToFit()
+							.padding(5)
+					}
+				}
+				ToolbarItem(placement: .primaryAction) {
+					NavigationLink(destination: UserProfile()) {
+						Image(systemName: "person.crop.circle.fill")
+							.foregroundColor(.darkGreenLittleLemon)
+					}
+				}
+			}
 		}
 	}
 }

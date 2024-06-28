@@ -21,16 +21,22 @@ struct MenuBreakdownView: View {
 }
 
 struct CategoryButton: View {
+	@State private var showAlert = false
 	var title: String
 	
 	var body: some View {
-		Button(action: {}) {
+		Button(action: {
+			showAlert = true
+		}) {
 			Text(title)
 				.bold()
 				.padding(10)
 				.background(Color.gray.opacity(0.2))
 				.cornerRadius(10)
 				.foregroundColor(.darkGreenLittleLemon)
+		}
+		.alert(isPresented: $showAlert) {
+			Alert(title: Text("Showcase button"), message: Text("This button is provided for illustrative purposes; please use the search bar to filter."), dismissButton: .default(Text("OK")))
 		}
 	}
 }
